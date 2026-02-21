@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactez Amis.dgens - Association humanitaire étudiante à Nancy. Email, réseaux sociaux et formulaire de contact.">
+  <meta name="keywords" content="contact association humanitaire Nancy, contacter amis.dgens, formulaire contact">
+  
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Contact - Amis.dgens</title>
+</head>
+<body>
+  
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="logo.jpeg" alt="Logo Amis.dgens">
+        </div>
+        <span>amis.dgens</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="l-association.html">L'association</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="nos-actions.html">Nos actions</a></li>
+        <li><a href="nos-projets.html">Nos projets</a></li>
+        <li><a href="nos-actions.html#centre-accueil">Centre d'accueil</a></li>
+        <li><a href="nous-soutenir.html">Nous soutenir</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="nous-soutenir.html" class="btn-don">Faire un don</a></li>
+      </ul>
+      
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- HERO SECTION -->
+  <section class="hero" style="height: 50vh; min-height: 400px; background: linear-gradient(135deg, var(--marron), var(--orange));">
+    <div class="hero-content">
+      <h1>Contactez-nous</h1>
+      <p>Nous sommes à votre écoute 💬</p>
+    </div>
+  </section>
+  
+  <!-- INFORMATIONS DE CONTACT -->
+  <section id="infos-contact">
+    <div class="section-title " data-aos="fade-up">
+      <h2>Entrons en contact</h2>
+      <p>N'hésitez pas à nous contacter, nous vous répondrons rapidement</p>
+    </div>
+    
+    <div class="cards-container">
+      <div class="card " data-aos="fade-down">
+        <div class="card-icon">📧</div>
+        <h3>Email</h3>
+        <p><a href="mailto:contact@amisdgens.fr" style="color: var(--orange); font-weight: 600;">contact@amisdgens.fr</a></p>
+        <p style="margin-top: 1rem; color: var(--marron-clair);">Nous répondons sous 48h</p>
+      </div>
+      
+      <div class="card " data-aos="fade-left">
+        <div class="card-icon">📍</div>
+        <h3>Localisation</h3>
+        <p><strong>Nancy, France</strong></p>
+        <p style="margin-top: 1rem; color: var(--marron-clair);">Université de Lorraine<br>Campus Santé</p>
+      </div>
+      
+      <div class="card " data-aos="fade-right">
+        <div class="card-icon">📱</div>
+        <h3>Réseaux sociaux</h3>
+        <p style="margin-bottom: 1.5rem;">Suivez nos actualités et événements</p>
+        <div class="social-links" style="justify-content: center;">
+          <a href="#" class="social-icon" style="background: var(--orange); color: white;" aria-label="Instagram">📷</a>
+          <a href="#" class="social-icon" style="background: var(--orange); color: white;" aria-label="Facebook">👍</a>
+          <a href="#" class="social-icon" style="background: var(--orange); color: white;" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FORMULAIRE DE CONTACT -->
+  <section id="formulaire" style="background-color: var(--beige);">
+    <div class="section-title " data-aos="flip-up">
+      <h2>Envoyez-nous un message</h2>
+      <p>Remplissez le formulaire ci-dessous</p>
+    </div>
+    
+    <form id="contact-form" class="contact-form " data-aos="flip-down">
+      <div class="form-group">
+        <label for="nom">Nom complet *</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom et prénom" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Adresse email *</label>
+        <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="telephone">Téléphone (optionnel)</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78">
+      </div>
+      
+      <div class="form-group">
+        <label for="sujet">Sujet *</label>
+        <select id="sujet" name="sujet" required style="width: 100%; padding: 1rem; border: 2px solid var(--gris-clair); border-radius: 10px; font-family: inherit; font-size: 1rem;">
+          <option value="">Sélectionnez un sujet</option>
+          <option value="benevolat">Devenir bénévole</option>
+          <option value="don">Faire un don</option>
+          <option value="partenariat">Partenariat</option>
+          <option value="information">Demande d'information</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Votre message *</label>
+        <textarea id="message" name="message" placeholder="Décrivez votre demande..." required></textarea>
+      </div>
+      
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+      </div>
+      
+      <p style="text-align: center; margin-top: 1.5rem; color: var(--marron-clair); font-size: 0.9rem;">
+        * Champs obligatoires<br>
+        Vos données sont protégées et ne seront jamais partagées avec des tiers.
+      </p>
+    </form>
+  </section>
+  
+  <!-- FAQ RAPIDE -->
+  <section id="faq">
+    <div class="section-title " data-aos="zoom-in">
+      <h2>Questions fréquentes</h2>
+    </div>
+    
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div class="card " data-aos="fade-up-left">
+        <h3 style="color: var(--orange);">Comment puis-je vous rejoindre ?</h3>
+        <p>Remplissez le formulaire ci-dessus en sélectionnant "Devenir bénévole" ou contactez-nous directement par email.</p>
+      </div>
+      
+      <div class="card " data-aos="fade-down-right">
+        <h3 style="color: var(--orange);">Mon don est-il déductible des impôts ?</h3>
+        <p>Oui ! Les dons aux associations d'intérêt général ouvrent droit à une réduction d'impôt de 66% du montant versé.</p>
+      </div>
+      
+      <div class="card " data-aos="fade-up">
+        <h3 style="color: var(--orange);">Organisez-vous des événements ouverts au public ?</h3>
+        <p>Oui, nous organisons régulièrement des événements de sensibilisation et de collecte de fonds. Suivez-nous sur les réseaux sociaux pour ne rien manquer !</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Amis.dgens</h3>
+        <p>Association de solidarité internationale à Nancy, engagée aux côtés du centre d'accueil La Providence à Lokossa, Bénin.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+          <a href="#" class="social-icon" aria-label="Facebook">👍</a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <a href="index.html">Accueil</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="l-association.html">L'association</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="nos-actions.html">Nos actions</a>
+        <a href="nos-projets.html">Nos projets</a>
+        <a href="nos-actions.html#centre-accueil">Centre d'accueil</a>
+        <a href="nous-soutenir.html">Nous soutenir</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📍 Nancy, France</p>
+        <p>📧 contact@amisdgens.fr</p>
+        <p>📱 Suivez-nous sur les réseaux sociaux</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Soutenir</h3>
+        <a href="nous-soutenir.html">Faire un don</a>
+        <a href="nous-soutenir.html">Devenir bénévole</a>
+        <a href="nous-soutenir.html">Partenariats</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2025</span> Amis.dgens - Tous droits réservés | <a href="#mentions-legales">Mentions légales</a></p>
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script src="script.js"></script>
+  
+  
+  <!-- Crédit créateur -->
+  <div class="footer-credit">
+    <p>
+      Site créé par 
+      <a href="https://noanwebdesigner.netlify.app" target="_blank" rel="noopener">🎨 noanweb</a>
+      <span class="separator">|</span>
+      Instagram: 
+      <a href="https://instagram.com/noan.web" target="_blank" rel="noopener">📱 @noan.web</a>
+    </p>
+  </div>
+
+</body>
+</html>
+

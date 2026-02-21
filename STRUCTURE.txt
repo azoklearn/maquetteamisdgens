@@ -1,0 +1,125 @@
+📁 STRUCTURE DU SITE AMIS.DGENS
+═══════════════════════════════════════════════════════════
+
+📂 maquetteassos/
+│
+├── 🌐 PAGES HTML (10)
+│   ├── index.html                  (9.9 KB)  ✅ Page d'accueil
+│   ├── a-propos.html               (9.6 KB)  ✅ À propos
+│   ├── l-association.html          (24 KB)   ✅ Histoire + Bureaux
+│   ├── actualites.html             (15 KB)   ✅ 14 articles
+│   ├── nos-actions.html            (7.9 KB)  ✅ Actions humanitaires
+│   ├── nos-projets.html            (19 KB)   ✅ 12 ans de projets
+│   ├── orphelinat.html             (14 KB)   ✅ La Providence
+│   ├── nous-soutenir.html          (9.6 KB)  ✅ Dons et bénévolat
+│   ├── contact.html                (8.8 KB)  ✅ Formulaire
+│   └── demo-animations.html        (8.9 KB)  ✨ Démo animations
+│
+├── 🎨 STYLES & SCRIPTS
+│   ├── styles.css                  (33 KB)   🎨 Feuille de style complète
+│   └── script.js                   (8.9 KB)  ⚙️ JavaScript interactif
+│
+├── 🖼️ MÉDIAS
+│   ├── logo.jpeg                            🏢 Logo de l'association
+│   └── images/
+│       └── README.md                        📝 Guide pour les images
+│
+└── 📚 DOCUMENTATION (6)
+    ├── README.md                   (9.2 KB)  📘 Documentation principale
+    ├── ANIMATIONS_AOS.md           (5.6 KB)  🎭 Guide animations
+    ├── CLICK_SPARK.md              (6.2 KB)  ✨ Guide click spark
+    ├── MENU_HAMBURGER.md           (5.8 KB)  🍔 Guide menu hamburger
+    ├── NOUVEAUTES.md               (8.5 KB)  📋 Nouveautés
+    └── STRUCTURE.txt               (3.2 KB)  📊 Structure du projet
+
+═══════════════════════════════════════════════════════════
+
+✨ FONCTIONNALITÉS PRINCIPALES
+═══════════════════════════════════════════════════════════
+
+✨ CLICK SPARK EFFECT (NOUVEAU !)
+   • Effet de particules colorées au clic
+   • 6 particules par clic (3-8px)
+   • Couleurs du site (orange, marron)
+   • Animation circulaire 0.8s
+   • Très léger et subtil
+   • Fonctionne desktop + mobile
+   • Documentation : CLICK_SPARK.md
+
+🍔 MENU HAMBURGER FULL SCREEN
+   • Fonctionne sur tous les appareils (desktop, mobile, tablette)
+   • Dégradé marron → marron clair → orange
+   • Animations progressives des liens (délais 0.1s à 0.55s)
+   • Transformation hamburger → X au clic
+   • Scroll bloqué quand ouvert
+   • Bouton "Faire un don" en style spécial
+   • Z-index: 2000 (menu) + 2001 (hamburger)
+
+🎨 CRÉDIT NOANWEB
+   • Présent sur toutes les 10 pages
+   • En bas de page, après le footer
+   • Liens vers site web et Instagram
+   • Fond dégradé subtil
+   • Responsive (colonne sur mobile)
+
+🎭 ANIMATIONS AOS (157 animations)
+   • flip-up, flip-down
+   • fade-down-right, fade-up-left  
+   • fade-up, fade-down, fade-left, fade-right
+   • zoom-in, zoom-in-up, zoom-out
+   • Durée: 800ms par défaut
+   • Easing: ease-in-out
+   • Animation une seule fois (once: true)
+
+═══════════════════════════════════════════════════════════
+
+📊 STATISTIQUES
+═══════════════════════════════════════════════════════════
+
+Pages HTML         : 10
+Lignes CSS         : ~2000
+Lignes JavaScript  : ~300
+Animations AOS     : 157
+Fichiers doc       : 4
+Poids total CSS    : 33 KB
+Poids total JS     : 8.9 KB
+
+═══════════════════════════════════════════════════════════
+
+🎨 CHARTE GRAPHIQUE
+═══════════════════════════════════════════════════════════
+
+Couleurs principales:
+• Marron foncé  : #5D4037
+• Marron        : #6D4C41
+• Orange        : #f75e2a
+• Orange clair  : #FF8A50
+• Beige         : #F5F1E8
+• Blanc cassé   : #FAF8F3
+
+Police:
+• Poppins (Google Fonts)
+• Weights: 300, 400, 500, 600, 700
+
+═══════════════════════════════════════════════════════════
+
+🚀 POUR DÉMARRER
+═══════════════════════════════════════════════════════════
+
+1. Ouvrir index.html dans un navigateur
+2. Cliquer sur le hamburger (3 barres) pour tester le menu
+3. Scroller pour voir les animations AOS
+4. Vérifier le crédit noanweb en bas de page
+5. Tester la navigation entre les pages
+
+═══════════════════════════════════════════════════════════
+
+✅ LE SITE EST COMPLET ET PRÊT À ÊTRE MIS EN LIGNE !
+═══════════════════════════════════════════════════════════
+
+Site créé par noanweb 🎨
+• Site: https://noanwebdesigner.netlify.app
+• Instagram: @noan.web
+
+Pour l'association Amis.dgens 🧡
+• Nancy, France → Lokossa, Bénin 🇧🇯

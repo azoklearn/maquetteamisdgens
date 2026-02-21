@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Démonstration Animations AOS - Amis.dgens</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .demo-container {
+      padding: 5rem 10%;
+      background: linear-gradient(135deg, #FAF8F3 0%, #F5F1E8 100%);
+      min-height: 100vh;
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .demo-header h1 {
+      color: var(--marron-fonce);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .demo-header p {
+      color: var(--gris-texte);
+      font-size: 1.2rem;
+    }
+    
+    .demo-section {
+      margin-bottom: 5rem;
+    }
+    
+    .demo-section h2 {
+      color: var(--orange);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .demo-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .demo-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .demo-card h3 {
+      color: var(--marron);
+      margin-bottom: 0.5rem;
+    }
+    
+    .demo-card code {
+      background: var(--beige);
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      color: var(--orange);
+    }
+    
+    .back-btn {
+      text-align: center;
+      margin: 3rem 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="demo-container">
+    <div class="demo-header">
+      <h1>🎨 Démonstration des Animations AOS</h1>
+      <p>Faites défiler la page pour voir les animations en action !</p>
+    </div>
+    
+    <!-- FLIP ANIMATIONS -->
+    <div class="demo-section">
+      <h2>🔄 Animations Flip (Retournement)</h2>
+      <div class="demo-grid">
+        <div class="demo-card" data-aos="flip-up">
+          <div class="demo-card-icon">⬆️</div>
+          <h3>Flip Up</h3>
+          <code>data-aos="flip-up"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="flip-down">
+          <div class="demo-card-icon">⬇️</div>
+          <h3>Flip Down</h3>
+          <code>data-aos="flip-down"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="flip-left">
+          <div class="demo-card-icon">⬅️</div>
+          <h3>Flip Left</h3>
+          <code>data-aos="flip-left"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="flip-right">
+          <div class="demo-card-icon">➡️</div>
+          <h3>Flip Right</h3>
+          <code>data-aos="flip-right"</code>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FADE ANIMATIONS DIRECTIONNELLES -->
+    <div class="demo-section">
+      <h2>✨ Animations Fade (Fondu directionnel)</h2>
+      <div class="demo-grid">
+        <div class="demo-card" data-aos="fade-up">
+          <div class="demo-card-icon">📤</div>
+          <h3>Fade Up</h3>
+          <code>data-aos="fade-up"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-down">
+          <div class="demo-card-icon">📥</div>
+          <h3>Fade Down</h3>
+          <code>data-aos="fade-down"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-left">
+          <div class="demo-card-icon">📨</div>
+          <h3>Fade Left</h3>
+          <code>data-aos="fade-left"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-right">
+          <div class="demo-card-icon">📩</div>
+          <h3>Fade Right</h3>
+          <code>data-aos="fade-right"</code>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FADE ANIMATIONS DIAGONALES -->
+    <div class="demo-section">
+      <h2>💫 Animations Fade Diagonales</h2>
+      <div class="demo-grid">
+        <div class="demo-card" data-aos="fade-up-right">
+          <div class="demo-card-icon">↗️</div>
+          <h3>Fade Up Right</h3>
+          <code>data-aos="fade-up-right"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-up-left">
+          <div class="demo-card-icon">↖️</div>
+          <h3>Fade Up Left</h3>
+          <code>data-aos="fade-up-left"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-down-right">
+          <div class="demo-card-icon">↘️</div>
+          <h3>Fade Down Right</h3>
+          <code>data-aos="fade-down-right"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-down-left">
+          <div class="demo-card-icon">↙️</div>
+          <h3>Fade Down Left</h3>
+          <code>data-aos="fade-down-left"</code>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ZOOM ANIMATIONS -->
+    <div class="demo-section">
+      <h2>🔍 Animations Zoom</h2>
+      <div class="demo-grid">
+        <div class="demo-card" data-aos="zoom-in">
+          <div class="demo-card-icon">🎯</div>
+          <h3>Zoom In</h3>
+          <code>data-aos="zoom-in"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="zoom-in-up">
+          <div class="demo-card-icon">🚀</div>
+          <h3>Zoom In Up</h3>
+          <code>data-aos="zoom-in-up"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="zoom-in-down">
+          <div class="demo-card-icon">🎪</div>
+          <h3>Zoom In Down</h3>
+          <code>data-aos="zoom-in-down"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="zoom-out">
+          <div class="demo-card-icon">🎬</div>
+          <h3>Zoom Out</h3>
+          <code>data-aos="zoom-out"</code>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ANIMATIONS AVEC OPTIONS -->
+    <div class="demo-section">
+      <h2>⚙️ Animations avec options personnalisées</h2>
+      <div class="demo-grid">
+        <div class="demo-card" data-aos="fade-up" data-aos-duration="2000">
+          <div class="demo-card-icon">🐢</div>
+          <h3>Durée longue (2s)</h3>
+          <code>data-aos-duration="2000"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="flip-left" data-aos-delay="500">
+          <div class="demo-card-icon">⏰</div>
+          <h3>Avec délai (500ms)</h3>
+          <code>data-aos-delay="500"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="zoom-in" data-aos-easing="ease-in-out-back">
+          <div class="demo-card-icon">🎢</div>
+          <h3>Easing Back</h3>
+          <code>data-aos-easing="ease-in-out-back"</code>
+        </div>
+        
+        <div class="demo-card" data-aos="fade-down-right" data-aos-duration="1500" data-aos-delay="200">
+          <div class="demo-card-icon">🎨</div>
+          <h3>Combinaison</h3>
+          <code>duration + delay</code>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EXEMPLES PRATIQUES -->
+    <div class="demo-section">
+      <h2>💼 Exemples pratiques pour le site</h2>
+      
+      <div style="background: white; padding: 3rem; border-radius: 20px; margin-bottom: 2rem;" data-aos="fade-up">
+        <h3 style="color: var(--orange); text-align: center; margin-bottom: 2rem;">Section titre</h3>
+        <p style="text-align: center; color: var(--gris-texte);">Parfait pour les introductions de sections avec <code>data-aos="fade-up"</code></p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+        <div class="demo-card" data-aos="flip-up" data-aos-delay="0">
+          <div class="demo-card-icon">📚</div>
+          <h3>Projet 1</h3>
+        </div>
+        <div class="demo-card" data-aos="flip-up" data-aos-delay="100">
+          <div class="demo-card-icon">🏥</div>
+          <h3>Projet 2</h3>
+        </div>
+        <div class="demo-card" data-aos="flip-up" data-aos-delay="200">
+          <div class="demo-card-icon">🎓</div>
+          <h3>Projet 3</h3>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem; color: var(--gris-texte);">
+        Grille avec délai progressif : idéal pour les cartes de projets
+      </p>
+    </div>
+    
+    <div class="back-btn">
+      <a href="index.html" class="btn btn-primary" data-aos="zoom-in">
+        ← Retour au site
+      </a>
+    </div>
+  </div>
+  
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!-- Script -->
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false, // Répéter les animations pour la démo
+      offset: 120,
+      delay: 100,
+    });
+  </script>
+  
+  
+  <!-- Crédit créateur -->
+  <div class="footer-credit">
+    <p>
+      Site créé par 
+      <a href="https://noanwebdesigner.netlify.app" target="_blank" rel="noopener">🎨 noanweb</a>
+      <span class="separator">|</span>
+      Instagram: 
+      <a href="https://instagram.com/noan.web" target="_blank" rel="noopener">📱 @noan.web</a>
+    </p>
+  </div>
+
+</body>
+</html>
+
