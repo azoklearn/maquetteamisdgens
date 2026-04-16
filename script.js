@@ -56,6 +56,53 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // ==========================================
+  // HERO - Slideshow vidéo avec fade et dots
+  // ==========================================
+
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-dot');
+
+  if (heroSlides.length > 1) {
+    let currentSlide = 0;
+    let slideshowTimer;
+
+    function goToSlide(index) {
+      heroSlides[currentSlide].classList.remove('hero-slide-active');
+      heroSlides[currentSlide].pause();
+      heroDots[currentSlide].classList.remove('active');
+
+      currentSlide = index;
+
+      heroSlides[currentSlide].classList.add('hero-slide-active');
+      heroSlides[currentSlide].currentTime = 0;
+      heroSlides[currentSlide].play().catch(() => {});
+      heroDots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide((currentSlide + 1) % heroSlides.length);
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(slideshowTimer);
+      slideshowTimer = setInterval(nextSlide, 6000);
+    }
+
+    // Clic sur un dot
+    heroDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        goToSlide(parseInt(dot.dataset.index));
+        resetTimer();
+      });
+    });
+
+    // Démarrer
+    heroSlides[0].play().catch(() => {});
+    slideshowTimer = setInterval(nextSlide, 6000);
+  }
+
+  // ==========================================
   // HEADER - Effet au scroll
   // ==========================================
   
