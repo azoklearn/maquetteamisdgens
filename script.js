@@ -3,20 +3,36 @@
 // ==========================================
 
 // ==========================================
-// LOADER - disparaît quand la page est chargée
+// LOADER - affiché une seule fois à l'ouverture du site
 // ==========================================
 (function() {
   const loader = document.getElementById('site-loader');
   if (!loader) return;
+
+  // Si le loader a déjà été vu dans cette session, on le masque immédiatement
+  if (sessionStorage.getItem('loaderSeen')) {
+    loader.style.display = 'none';
+    return;
+  }
+
+  const MIN_DISPLAY = 2200; // durée minimum d'affichage en ms
+  const start = Date.now();
+
   const hide = () => {
-    loader.classList.add('hidden');
-    setTimeout(() => { loader.style.display = 'none'; }, 550);
+    const elapsed = Date.now() - start;
+    const remaining = Math.max(0, MIN_DISPLAY - elapsed);
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      sessionStorage.setItem('loaderSeen', '1');
+      setTimeout(() => { loader.style.display = 'none'; }, 600);
+    }, remaining);
   };
+
   if (document.readyState === 'complete') {
     hide();
   } else {
     window.addEventListener('load', hide);
-    setTimeout(hide, 3500); // fallback max 3.5s
+    setTimeout(hide, 5000); // fallback max 5s
   }
 })();
 
@@ -40,21 +56,24 @@ document.addEventListener('DOMContentLoaded', function() {
   // NAVIGATION - Menu hamburger mobile
   // ==========================================
   
+  const hamburgerWrap = document.querySelector('.hamburger-wrap');
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   const navItems = document.querySelectorAll('.nav-links a');
-  
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
+
+  const toggleEl = hamburgerWrap || hamburger;
+
+  if (toggleEl) {
+    toggleEl.addEventListener('click', () => {
+      hamburger && hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
       document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
     });
-    
+
     // Fermer le menu au clic sur un lien
     navItems.forEach(item => {
       item.addEventListener('click', () => {
-        hamburger.classList.remove('active');
+        hamburger && hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         document.body.style.overflow = 'auto';
       });
