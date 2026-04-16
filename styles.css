@@ -435,9 +435,14 @@ section {
    ========================================== */
 
 .hero {
+  /* Override règle section générale */
+  max-width: 100vw !important;
+  width: 100vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* Plein écran */
   height: 100vh;
   min-height: 100svh;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -445,8 +450,12 @@ section {
   color: var(--blanc);
   text-align: center;
   position: relative;
-  margin-top: 0;
   overflow: hidden;
+  /* Aligner sur le bord gauche si body a un padding */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
 }
 
 /* Voile sombre léger pour lisibilité du texte */
