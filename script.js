@@ -2,6 +2,24 @@
 // AMIS.DGENS - Script JavaScript principal
 // ==========================================
 
+// ==========================================
+// LOADER - disparaît quand la page est chargée
+// ==========================================
+(function() {
+  const loader = document.getElementById('site-loader');
+  if (!loader) return;
+  const hide = () => {
+    loader.classList.add('hidden');
+    setTimeout(() => { loader.style.display = 'none'; }, 550);
+  };
+  if (document.readyState === 'complete') {
+    hide();
+  } else {
+    window.addEventListener('load', hide);
+    setTimeout(hide, 3500); // fallback max 3.5s
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   
   // ==========================================
@@ -413,3 +431,42 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+
+// ==========================================
+// LIGHTBOX - affichage plein écran des photos
+// ==========================================
+(function() {
+  // Créer l'overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<span class="lightbox-close" title="Fermer">✕</span><img id="lightbox-img" src="" alt="">';
+  document.body.appendChild(overlay);
+
+  const lbImg = overlay.querySelector('#lightbox-img');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  // Fermeture au clic sur le fond ou la croix
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay || e.target.classList.contains('lightbox-close')) close();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Activer sur toutes les images avec data-lightbox
+  document.querySelectorAll('img[data-lightbox]').forEach(function(img) {
+    img.addEventListener('click', function() { open(img.src, img.alt); });
+  });
+})();

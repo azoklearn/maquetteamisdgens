@@ -436,6 +436,8 @@ section {
 
 .hero {
   height: 100vh;
+  min-height: 100svh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -444,11 +446,25 @@ section {
   text-align: center;
   position: relative;
   margin-top: 0;
+  overflow: hidden;
+}
+
+/* Voile sombre léger pour lisibilité du texte */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-video {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   z-index: 0;
 }
@@ -2228,5 +2244,114 @@ footer {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 5%;
+}
+
+/* ==========================================
+   LOADER
+   ========================================== */
+
+#site-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--blanc-casse);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.5s ease;
+}
+
+#site-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#site-loader img {
+  width: 90px;
+  border-radius: 50%;
+  animation: loader-pulse 1s ease-in-out infinite alternate;
+}
+
+#site-loader .loader-bar {
+  width: 120px;
+  height: 3px;
+  background: var(--gris-clair);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+#site-loader .loader-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  background: var(--orange);
+  border-radius: 3px;
+  animation: loader-slide 1.2s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+  from { transform: scale(0.92); opacity: 0.75; }
+  to   { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes loader-slide {
+  0%   { width: 0%; margin-left: 0; }
+  50%  { width: 80%; margin-left: 0; }
+  100% { width: 0%; margin-left: 100%; }
+}
+
+/* ==========================================
+   LIGHTBOX
+   ========================================== */
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 1rem;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  cursor: default;
+  animation: lightbox-in 0.25s ease;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover { opacity: 1; }
+
+@keyframes lightbox-in {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+img[data-lightbox] {
+  cursor: zoom-in;
 }
 
