@@ -213,6 +213,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // ==========================================
+  // HERO VIDÉO - une seule vidéo de fond
+  // ==========================================
+  
+  const heroVideos = document.querySelectorAll('.hero-video video.hero-slide');
+  if (heroVideos.length > 0) {
+    const video = heroVideos[0];
+    video.classList.add('hero-slide-active');
+    video.muted = true;
+    video.play().catch(() => {});
+  }
+  
+  // ==========================================
   // COMPTEUR ANIMÉ (pour les statistiques)
   // ==========================================
   
