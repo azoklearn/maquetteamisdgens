@@ -107,17 +107,93 @@ p {
    ========================================== */
 
 header {
-  background-color: var(--blanc);
-  box-shadow: var(--shadow-md);
+  /* Liquid glass — transparent au-dessus du hero */
+  background: transparent;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: var(--transition);
+  /* PAS de backdrop-filter ici : ça briserait position:fixed des enfants (nav-links) */
+  transition: box-shadow 0.5s ease;
+  overflow: hidden;
 }
 
+/* Fond verre dépoli via ::before pour ne pas créer de containing-block sur les enfants */
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+header.scrolled::before {
+  opacity: 1;
+}
+
+/* Shimmer animé en permanence */
+header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -220%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 75%
+  );
+  animation: nav-shimmer 7s cubic-bezier(0.4,0,0.6,1) infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes nav-shimmer {
+  0%, 25%   { left: -220%; }
+  75%, 100% { left: 220%; }
+}
+
+/* État scrollé : ombre portée (pas de backdrop-filter direct) */
 header.scrolled {
-  box-shadow: var(--shadow-lg);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Transparent au top : logo et hamburger en blanc sur vidéo sombre */
+header:not(.scrolled) .logo {
+  color: var(--blanc);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+
+header:not(.scrolled) .logo-icon {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+
+header:not(.scrolled) .hamburger span {
+  background-color: var(--blanc);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+header:not(.scrolled) .hamburger-wrap {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+}
+
+header.scrolled .logo {
+  color: var(--marron-fonce);
+}
+
+header.scrolled .hamburger span {
+  background-color: var(--marron-fonce);
 }
 
 nav {
@@ -127,6 +203,8 @@ nav {
   padding: 1rem 5%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1; /* Au-dessus des pseudo-éléments ::before/::after du header */
 }
 
 .logo {
@@ -203,45 +281,88 @@ nav {
 }
 
 /* Menu hamburger mobile */
+.hamburger-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  /* Reste visible au-dessus du menu full-screen */
+  position: relative;
+  z-index: 2001;
+  cursor: pointer;
+}
+
+header.scrolled .hamburger-wrap {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.hamburger-wrap:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+header.scrolled .hamburger-wrap:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
 .hamburger {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-  z-index: 2001;
-  position: relative;
-  padding: 10px;
-  transition: var(--transition);
-}
-
-.hamburger:hover {
-  transform: scale(1.1);
+  gap: 5px;
+  padding: 0;
+  pointer-events: none; /* le clic est géré par hamburger-wrap */
 }
 
 .hamburger span {
-  width: 30px;
-  height: 3px;
-  background-color: var(--marron-fonce);
-  border-radius: 3px;
-  transition: all 0.3s ease;
   display: block;
+  border-radius: 3px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--marron-fonce);
+}
+
+.hamburger span:nth-child(1) {
+  width: 22px;
+  height: 2.5px;
+}
+
+.hamburger span:nth-child(2) {
+  width: 16px;
+  height: 2.5px;
+  align-self: flex-end;
+}
+
+.hamburger span:nth-child(3) {
+  width: 22px;
+  height: 2.5px;
 }
 
 .hamburger.active span {
   background-color: var(--blanc);
+  width: 22px;
+  align-self: auto;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(9px, 9px);
+  transform: translateY(7.5px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  transform: translateX(20px);
+  transform: scaleX(0);
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(9px, -9px);
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* Menu Full Screen */
@@ -2268,8 +2389,8 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  transition: opacity 0.5s ease;
+  gap: 2.5rem;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #site-loader.hidden {
@@ -2278,16 +2399,17 @@ footer {
 }
 
 #site-loader img {
-  width: 90px;
+  width: 100px;
   border-radius: 50%;
-  animation: loader-pulse 1s ease-in-out infinite alternate;
+  box-shadow: 0 8px 32px rgba(93, 64, 55, 0.18);
+  animation: loader-logo-in 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 #site-loader .loader-bar {
-  width: 120px;
-  height: 3px;
-  background: var(--gris-clair);
-  border-radius: 3px;
+  width: 200px;
+  height: 2px;
+  background: rgba(93, 64, 55, 0.1);
+  border-radius: 2px;
   overflow: hidden;
 }
 
@@ -2295,20 +2417,20 @@ footer {
   content: '';
   display: block;
   height: 100%;
-  background: var(--orange);
-  border-radius: 3px;
-  animation: loader-slide 1.2s ease-in-out infinite;
+  width: 0%;
+  background: linear-gradient(90deg, var(--marron), var(--orange));
+  border-radius: 2px;
+  animation: loader-fill 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes loader-pulse {
-  from { transform: scale(0.92); opacity: 0.75; }
-  to   { transform: scale(1.05); opacity: 1; }
+@keyframes loader-logo-in {
+  from { transform: scale(0.72); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
 
-@keyframes loader-slide {
-  0%   { width: 0%; margin-left: 0; }
-  50%  { width: 80%; margin-left: 0; }
-  100% { width: 0%; margin-left: 100%; }
+@keyframes loader-fill {
+  0%   { width: 0%; }
+  100% { width: 100%; }
 }
 
 /* ==========================================
