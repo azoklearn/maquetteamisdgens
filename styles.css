@@ -383,6 +383,7 @@ header.scrolled .hamburger-wrap:hover {
   transition: opacity 0.5s ease, visibility 0.5s ease;
   z-index: 2000;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-links::before {
@@ -2082,7 +2083,27 @@ footer {
 
 @media (max-width: 768px) {
   /* Menu full screen déjà défini globalement */
-  
+
+  /* Hamburger toujours visible sur mobile quelle que soit la page */
+  header {
+    overflow: visible;
+  }
+
+  .hamburger-wrap {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .hamburger span {
+    background-color: var(--marron-fonce) !important;
+    box-shadow: none !important;
+  }
+
+  .hamburger.active span {
+    background-color: var(--blanc) !important;
+  }
+
   .resume-projets-grid {
     grid-template-columns: 1fr !important;
   }
