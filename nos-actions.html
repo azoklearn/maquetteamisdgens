@@ -210,8 +210,24 @@
     <div data-aos="fade-up" style="max-width: 900px; margin: 3rem auto; background: linear-gradient(135deg, var(--orange-clair), var(--blanc)); padding: 2.5rem; border-radius: 15px; box-shadow: var(--shadow-md); border: 2px solid var(--orange);">
       <h3 style="color: var(--orange); margin-bottom: 1rem;">💊 Soins dans les dispensaires</h3>
       <p style="font-size: 1.1rem; line-height: 1.8;">Notre mission la plus récente date de l'été 2025 et s'appuie sur un partenariat avec une autre association : <strong>Meilleure santé pour tous au Bénin</strong>. Cette collaboration nous permet de prodiguer des soins de base dans les dispensaires des environs, encadrés par une infirmière de leur équipe.</p>
-      <p style="margin-top: 1rem;">Réels de cet été à ajouter (photos et vidéos).</p>
-      <p style="margin-top: 1rem;">
+
+      <!-- Vidéos soins dispensaires -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+        <video controls preload="metadata" style="width:100%; border-radius:10px; box-shadow:var(--shadow-sm); background:#000;">
+          <source src="images/video soins.MOV" type="video/mp4">
+        </video>
+        <video controls preload="metadata" style="width:100%; border-radius:10px; box-shadow:var(--shadow-sm); background:#000;">
+          <source src="images/video soins (1).MOV" type="video/mp4">
+        </video>
+        <video controls preload="metadata" style="width:100%; border-radius:10px; box-shadow:var(--shadow-sm); background:#000;">
+          <source src="images/video soins (2).MOV" type="video/mp4">
+        </video>
+        <video controls preload="metadata" style="width:100%; border-radius:10px; box-shadow:var(--shadow-sm); background:#000;">
+          <source src="images/video soins (3).MOV" type="video/mp4">
+        </video>
+      </div>
+
+      <p style="margin-top: 1.5rem;">
         <a href="https://www.facebook.com/santepourtousaubenin" target="_blank" rel="noopener noreferrer" style="margin-right: 1rem;">Facebook MSPTB</a>
         <a href="https://www.instagram.com/santepourtousaubenin?igsh=d2d1Mmd0OHAxeW5v" target="_blank" rel="noopener noreferrer">Instagram MSPTB</a>
       </p>
@@ -288,13 +304,7 @@
       <h3 style="color: var(--orange); margin-bottom: 1.5rem; text-align: center;">📰 Ils parlent de nous</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
 
-        <a href="https://youtu.be/TB9nwXEXsp8?si=l-hclJKunH6wmYlh" target="_blank" rel="noopener noreferrer" style="background: white; border-radius: 12px; box-shadow: var(--shadow-md); padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.5rem; border-top: 4px solid var(--orange);">
-          <span style="font-size: 1.5rem;">🎥</span>
-          <strong style="color: var(--orange);">Déchargement du conteneur 2025-2026</strong>
-          <span style="font-size: 0.9rem; color: var(--marron);">Voir la vidéo →</span>
-        </a>
-
-        <a href="https://www.estrepublicain.fr/societe/2025/11/09/amis-d-gens-lance-amis-d-jambes-une-course-caritative-au-profit-de-projets-humanitaires-au-benin" target="_blank" rel="noopener noreferrer" style="background: white; border-radius: 12px; box-shadow: var(--shadow-md); padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.5rem; border-top: 4px solid var(--orange);">
+<a href="https://www.estrepublicain.fr/societe/2025/11/09/amis-d-gens-lance-amis-d-jambes-une-course-caritative-au-profit-de-projets-humanitaires-au-benin" target="_blank" rel="noopener noreferrer" style="background: white; border-radius: 12px; box-shadow: var(--shadow-md); padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.5rem; border-top: 4px solid var(--orange);">
           <span style="font-size: 1.5rem;">📰</span>
           <strong style="color: var(--orange);">Amis D'Jambes — course caritative</strong>
           <span style="font-size: 0.9rem; color: var(--marron);">L'Est Républicain · Nov. 2025 →</span>
@@ -317,16 +327,29 @@
   </section>
   
   <!-- NOS PARTENAIRES -->
-  <section id="partenaires" style="padding: 4rem 10%;">
-    <div class="section-title " data-aos="fade-up">
+  <section id="partenaires">
+    <div class="section-title" data-aos="fade-down">
       <h2>Nos partenaires</h2>
-      <p>Ils nous font confiance</p>
+      <p>Ils nous font confiance et nous soutiennent dans nos actions</p>
     </div>
-    <div class="partenaires-grid" data-aos="zoom-in">
-      <div class="partenaire-logo"><img src="images/king-jouet.png" alt="King Jouet" onerror="this.style.display='none'"></div>
-      <div class="partenaire-logo"><img src="images/okaidi.png" alt="Okaïdi" onerror="this.style.display='none'"></div>
-      <div class="partenaire-logo"><img src="images/decathlon.png" alt="Décathlon" onerror="this.style.display='none'"></div>
-      <div class="partenaire-logo"><img src="images/helloasso.png" alt="HelloAsso" onerror="this.style.display='none'"></div>
+    <div class="partenaires-grid" data-aos="zoom-in-up" data-aos-delay="150">
+      <div class="partenaire-logo">
+        <img src="images/king-jouet.png" alt="King Jouet" onerror="this.style.display='none'">
+      </div>
+      <div class="partenaire-logo">
+        <img src="images/okaidi.png" alt="Okaïdi" onerror="this.style.display='none'">
+      </div>
+      <div class="partenaire-logo">
+        <img src="images/decathlon.png" alt="Décathlon" onerror="this.style.display='none'">
+      </div>
+      <div class="partenaire-logo">
+        <img src="images/verdun.png" alt="Leclerc Verdun" onerror="this.style.display='none'">
+      </div>
+      <div class="partenaire-logo">
+        <a href="https://www.facebook.com/santepourtousaubenin" target="_blank" rel="noopener noreferrer">
+          <img src="images/mspt.jpeg" alt="Meilleure santé pour tous au Bénin" onerror="this.style.display='none'">
+        </a>
+      </div>
     </div>
   </section>
   
