@@ -489,3 +489,21 @@ document.head.appendChild(style);
     img.addEventListener('click', function() { open(img.src, img.alt); });
   });
 })();
+
+// ==========================================
+// YOUTUBE FACADE — charge l'iframe au clic
+// ==========================================
+document.querySelectorAll('.yt-facade').forEach(function(facade) {
+  facade.addEventListener('click', function() {
+    var vid = facade.dataset.vid;
+    if (!vid) return;
+    var thumb = facade.querySelector('.yt-thumb');
+    var label = facade.querySelector('.yt-label');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + vid + '?autoplay=1&rel=0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.title = label ? label.textContent : 'Vidéo YouTube';
+    thumb.replaceWith(iframe);
+  });
+});
